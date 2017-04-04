@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_employee_create') }}" class="btn btn-success" style="margin-bottom: 5px;"><i class="glyphicon glyphicon-plus"></i> Add employee</a>
+    <table class="table table-responsive">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone</th>
+            <th>Office</th>
+            <th></th>
+        </tr>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.firstName }}</td>
+                <td>{{ employee.lastName }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.office.address }}</td>
+                <td>
+                    <a href="{{ path('app_employee_edit') }}"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ path('app_employee_delete') }}"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

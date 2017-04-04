@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_office_create') }}" class="btn btn-success" style="margin-bottom: 5px;"><i class="glyphicon glyphicon-plus"></i> Add office</a>
+    <table class="table table-responsive">
+        <tr>
+            <th>Address</th>
+            <th>Company</th>
+            <th></th>
+        </tr>
+        {% for office in offices %}
+            <tr>
+                <td>{{ office.address }}</td>
+                <td>{{ office.company.name }}</td>
+                <td>
+                    <a href="{{ path('app_office_edit') }}"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{{ path('app_office_delete') }}"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
